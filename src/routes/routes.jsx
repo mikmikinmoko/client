@@ -1,26 +1,31 @@
 import { createBrowserRouter } from "react-router-dom";
+import Authenticated from "../pages/Authenticated/Authenticated";
+import Dashboard from "../pages/Authenticated/Dashboard/Dashboard";
+import Registration from "../pages/Authenticated/Registration/Registration";
+import Contacts from "../pages/Authenticated/Contacts/Contacts";
 
-const routes = createBrowserRouter([
+export const router = createBrowserRouter([
   {
-    path: "",
-    element: "Hom",
-    loader: "",
-  },
-  {
-    path: "",
-    element: "",
-    loader: "",
-  },
-  {
-    path: "",
-    element: "",
-    loader: "",
-  },
-  {
-    path: "",
-    element: "",
-    loader: "",
+    path: "/",
+    element: <Authenticated />,
+    children: [
+      {
+        path: "/dashboard",
+        element: <Dashboard />,
+      },
+      {
+        path: "/registration",
+        element: <Registration />,
+      },
+      {
+        path: "/contacts",
+        children: [
+          {
+            path: "items",
+            element: <Contacts />,
+          },
+        ],
+      },
+    ],
   },
 ]);
-
-export default routes;
