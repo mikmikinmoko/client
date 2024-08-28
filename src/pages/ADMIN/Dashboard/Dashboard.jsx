@@ -1,5 +1,9 @@
 const Dashboard = () => {
-  return <div>asdasd</div>;
+  return (
+    <>
+      <div>bit</div>
+    </>
+  );
 };
 
 export default Dashboard;

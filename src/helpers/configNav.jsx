@@ -1,24 +1,50 @@
-import { UserAddOutlined } from "@ant-design/icons";
 import * as ADMIN from "../pages/ADMIN/index";
 import { DashboardIcon, UserPlusIcon } from "../assets/resources/icon/Icons";
 
 export const nav = [
   {
     path: "dashboard",
-    label: "Dashboard",
+    name: "Dashboard",
     component: <ADMIN.Dashboard />,
     icon: <DashboardIcon />,
     isFilter: true,
     isShow: true,
-    accountType: "ADMIN",
+    accountType: "MEMBER",
   },
   {
     path: "user",
-    label: "User",
+    name: "User",
     component: <ADMIN.User />,
     icon: <UserPlusIcon />,
     isFilter: true,
     isShow: true,
-    accountType: "ADMIN",
+    accountType: "MEMBER",
+  },
+  {
+    path: "members",
+    name: "Members",
+    // component: <ADMIN.Member />,
+    icon: <UserPlusIcon />,
+    isFilter: true,
+    isShow: true,
+    accountType: "MEMBER",
+    children: [
+      {
+        path: "registration",
+        name: "Registration",
+        component: <ADMIN.Registration />,
+        // icon: <UserPlusIcon />,
+        isFilter: true,
+        isShow: true,
+      },
+      {
+        path: "member",
+        name: "Member",
+        component: <ADMIN.Member />,
+        // icon: <UserPlusIcon />,
+        isFilter: true,
+        isShow: true,
+      },
+    ],
   },
 ];

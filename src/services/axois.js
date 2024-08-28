@@ -23,8 +23,10 @@ export const axiosData = axios.create({
 });
 
 export const getUserStore = (USER) => {
-  return USERS[USER].store.getState();
+  return USERS[USER]?.store?.getState();
 };
+
+console.log(getUserStore());
 
 export const createAxiosInstanceWithInterceptor = (type = "data", USER) => {
   const headers = {
