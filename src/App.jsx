@@ -1,7 +1,10 @@
-import Authenticated from "./pages/Authenticated/Authenticated";
-
+import RootRoutes from "./routes/routes";
 function App() {
-  return <Authenticated />;
+  return (
+    <>
+      <RootRoutes />
+    </>
+  );
 }
 1;
 

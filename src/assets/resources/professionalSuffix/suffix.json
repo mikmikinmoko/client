@@ -1,0 +1,27 @@
+[
+  {
+    "id": 1,
+    "value": "MD.",
+    "label": "MD",
+    "description": "Doctor of Medicine"
+  },
+
+  {
+    "id": 2,
+    "value": "DrPH.",
+    "label": "DrPH",
+    "description": "Doctor of Public Health"
+  },
+  {
+    "id": 3,
+    "value": "PhD.",
+    "label": "PhD",
+    "description": "Doctor of Philosophy"
+  },
+  {
+    "id": 4,
+    "value": "DDS.",
+    "label": "DDS",
+    "description": "Doctor of Dental Surgery"
+  }
+]

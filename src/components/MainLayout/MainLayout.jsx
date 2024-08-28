@@ -4,7 +4,7 @@ import { Button, Layout, Menu, theme } from "antd";
 import { Link, Outlet } from "react-router-dom";
 import { nav } from "../../helpers/configNav";
 const { Header, Sider, Content } = Layout;
-const Mainlayout = () => {
+const Mainlayout = ({ children }) => {
   const [collapsed, setCollapsed] = useState(false);
   const {
     token: { colorBgContainer, borderRadiusLG },
