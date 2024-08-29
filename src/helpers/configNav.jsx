@@ -1,5 +1,6 @@
 import * as ADMIN from "../pages/ADMIN/index";
 import { DashboardIcon, UserPlusIcon } from "../assets/resources/icon/Icons";
+import { TeamOutlined, UsergroupAddOutlined } from "@ant-design/icons";
 
 export const nav = [
   {
@@ -11,24 +12,24 @@ export const nav = [
     isShow: true,
     accountType: "MEMBER",
   },
+
   {
-    path: "user",
-    name: "User",
-    component: <ADMIN.User />,
-    icon: <UserPlusIcon />,
-    isFilter: true,
-    isShow: true,
-    accountType: "MEMBER",
-  },
-  {
-    path: "members",
-    name: "Members",
+    path: "membership",
+    name: "Membership",
     // component: <ADMIN.Member />,
-    icon: <UserPlusIcon />,
+    icon: <UsergroupAddOutlined />,
     isFilter: true,
     isShow: true,
     accountType: "MEMBER",
     children: [
+      {
+        path: "member",
+        name: "Members",
+        component: <ADMIN.Member />,
+        // icon: <UserPlusIcon />,
+        isFilter: true,
+        isShow: true,
+      },
       {
         path: "registration",
         name: "Registration",
@@ -37,14 +38,15 @@ export const nav = [
         isFilter: true,
         isShow: true,
       },
-      {
-        path: "member",
-        name: "Member",
-        component: <ADMIN.Member />,
-        // icon: <UserPlusIcon />,
-        isFilter: true,
-        isShow: true,
-      },
     ],
+  },
+  {
+    path: "account",
+    name: "Accounts",
+    component: <ADMIN.Accounts />,
+    icon: <TeamOutlined />,
+    isFilter: true,
+    isShow: true,
+    accountType: "MEMBER",
   },
 ];

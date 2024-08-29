@@ -1,8 +1,8 @@
 import { lazy } from "react";
 
 const Dashboard = lazy(() => import("./Dashboard/Dashboard"));
-const User = lazy(() => import("./Users/Users"));
-const Registration = lazy(() => import("./Registration/Registration"));
-const Member = lazy(() => import("./Registration/Member"));
+const Accounts = lazy(() => import("./Accounts/Accounts"));
+const Registration = lazy(() => import("./Membership/Registration"));
+const Member = lazy(() => import("./Membership/Member"));
 
-export { Dashboard, User, Registration, Member };
+export { Dashboard, Accounts, Registration, Member };

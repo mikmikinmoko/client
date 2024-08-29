@@ -32,13 +32,15 @@ const Mainlayout = ({ navigations }) => {
           background: colorBgContainer,
         }}
       >
-        <div className="p-2 w-20 flex items-center gap-2">
-          <img src={sirmmpc} style={{ borderRadius: "50%" }} />
+        <div className="p-2 flex items-center gap-2">
+          <img src={sirmmpc} style={{ borderRadius: "50%", width: "50px" }} />
           {!collapsed && (
-            <span className="text-[18px] font-['Poppins']">Cooperative</span>
+            <span className="text-[18px] font-['Poppins'] w-full">
+              Cooperative
+            </span>
           )}
         </div>
-        <Menu mode="inline" selectedKeys={[location.pathname]}>
+        <Menu mode="inline" selectedKeys={[location.pathname]} className="py-3">
           {navigations.map((item) => {
             if (item.children) {
               return (
