@@ -13,3 +13,9 @@ export const registration = async (body) => {
   );
   return result;
 };
+export const editMember = async ({ param }) => {
+  const result = await defaultAxios.post(
+    `/api/admin/membership/viewProfile/${param}`
+  );
+  return result;
+};

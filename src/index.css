@@ -6,9 +6,8 @@
 * {
   font-family: "Poppins";
 }
-.custom-table .ant-table-thead > tr > th {
+
+/* .custom-table .ant-table-thead > tr > th {
   background-color: #91e6a2;
-  /* Header background color */
   color: white;
-  /* Header text color */
-}
+} */

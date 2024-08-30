@@ -9,8 +9,8 @@ const ReusableTable = ({
 }) => {
   return (
     <Table
-      exportable={true}
-      //   searchableProps={{
+    exportable={true}
+    //   searchableProps={{
       //     searchFunction: searchFunction,
       //   }}
       searchable={true}

@@ -9,16 +9,16 @@ const queryClient = new QueryClient();
 
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <ConfigProvider
+    {/* <ConfigProvider
       theme={{
         token: {
           colorPrimary: "#e5f5e0",
         },
       }}
-    >
-      <QueryClientProvider client={queryClient}>
-        <App />
-      </QueryClientProvider>
-    </ConfigProvider>
+    > */}
+    <QueryClientProvider client={queryClient}>
+      <App />
+    </QueryClientProvider>
+    {/* </ConfigProvider> */}
   </StrictMode>
 );

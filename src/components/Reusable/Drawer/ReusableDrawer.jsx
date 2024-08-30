@@ -11,7 +11,7 @@ const ReusableDrawer = ({
 }) => {
   return (
     <Drawer
-      titlee={title}
+      title={title}
       placement={placement}
       open={open}
       onClose={onClose}

@@ -6,6 +6,15 @@ export const nav = [
   {
     path: "dashboard",
     name: "Dashboard",
+    component: <div>Test</div>,
+    icon: <DashboardIcon />,
+    isFilter: true,
+    isShow: true,
+    accountType: "SUPERADMIN",
+  },
+  {
+    path: "dashboard",
+    name: "Dashboard",
     component: <ADMIN.Dashboard />,
     icon: <DashboardIcon />,
     isFilter: true,

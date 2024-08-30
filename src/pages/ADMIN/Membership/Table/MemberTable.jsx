@@ -5,15 +5,23 @@ import {
   UserOutlined,
 } from "@ant-design/icons";
 import { Table } from "ant-table-extensions";
-import { Button, Dropdown, message } from "antd";
+import { Button, Dropdown } from "antd";
 import { useState } from "react";
+import { useSelectedMember } from "../../../../store/admin/useMembership";
 
-const MemberTable = ({ data }) => {
+const MemberTable = ({ data, openDrawer, edit }) => {
   const [clickAction, setClickAction] = useState(null);
 
   const handleClickAction = (id) => {
     setClickAction((prev) => (prev === id ? null : id));
   };
+
+  const { setSelectedMember } = useSelectedMember();
+
+  const onEditMember = () => {
+    edit.mutate();
+  };
+
   const columns = [
     {
       title: "Action",
@@ -23,13 +31,8 @@ const MemberTable = ({ data }) => {
             label: (
               <Button
                 onClick={() => {
-                  //   getDoctorById.mutate(data.accountId, {
-                  //     onSuccess: ({ data }) => {
-                  //       showEditDrawer();
-                  //       setMode("view");
-                  //       setSelectedId(data);
-                  //     },
-                  //   });
+                  openDrawer("view");
+                  setSelectedMember(data);
                 }}
                 className="flex items-center w-full"
                 icon={<UserOutlined style={{ color: "#1890ff" }} />}
@@ -42,15 +45,7 @@ const MemberTable = ({ data }) => {
           {
             label: (
               <Button
-                onClick={() => {
-                  //   getDoctorById.mutate(data.accountId, {
-                  //     onSuccess: ({ data }) => {
-                  //       showEditDrawer();
-                  //       setMode("edit");
-                  //       editForm.setFieldsValue({ ...data });
-                  //     },
-                  //   });
-                }}
+                onClick={() => edit.mutate({ param: data.accountId })}
                 icon={<EditOutlined style={{ color: "#1890ff" }} />}
                 className="flex items-center  w-full"
               >

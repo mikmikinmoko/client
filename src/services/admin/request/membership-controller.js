@@ -1,7 +1,7 @@
 import { useMutation, useQuery } from "@tanstack/react-query";
 import { useAuthStore } from "../../../store/auth/useAuthStore";
 import { message } from "antd";
-import { getMembers, registration } from "../api/membership";
+import { editMember, getMembers, registration } from "../api/membership";
 
 export const useGetMembers = () => {
   return useQuery({
@@ -13,5 +13,10 @@ export const useGetMembers = () => {
 export const useRegistration = () => {
   return useMutation({
     mutationFn: registration,
+  });
+};
+export const useEditMember = () => {
+  return useMutation({
+    mutationFn: editMember,
   });
 };
