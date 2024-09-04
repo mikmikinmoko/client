@@ -8,6 +8,8 @@ const ReusableDrawer = ({
   width,
   className,
   children,
+  height,
+  footer,
 }) => {
   return (
     <Drawer
@@ -16,7 +18,9 @@ const ReusableDrawer = ({
       open={open}
       onClose={onClose}
       width={width}
+      height={height}
       className={className}
+      footer={footer}
     >
       {children}
     </Drawer>

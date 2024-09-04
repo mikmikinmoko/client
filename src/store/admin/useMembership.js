@@ -5,3 +5,8 @@ export const useSelectedMember = create((set) => ({
 
   setSelectedMember: (selectedMember) => set({ selectedMember }),
 }));
+
+export const useMode = create((set) => ({
+  mode: ["pending", "accept"],
+  setMode: (mode) => set({ mode }),
+}));

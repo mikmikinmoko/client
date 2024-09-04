@@ -2,10 +2,11 @@ import { createAxiosInstanceWithInterceptor } from "../../axois";
 
 const defaultAxios = createAxiosInstanceWithInterceptor("data", "ADMIN");
 
-export const getMembers = async () => {
-  const result = await defaultAxios.get("/api/admin/membership/getMembers");
+export const getStallOwners = async () => {
+  const result = await defaultAxios.get("/api/admin/stall/getStallOwners");
   return result;
 };
+
 export const registration = async (body) => {
   const result = await defaultAxios.post(
     "/api/admin/membership/registration",

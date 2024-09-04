@@ -4,6 +4,8 @@ import MainLayout from "../../pages/ADMIN/MainLayout/MainLayout";
 import { useAuthStore } from "../../store/auth/useAuthStore";
 import { Auth, UnAuth } from "./validate";
 import { nav } from "../../helpers/configNav";
+import { Suspense } from "react";
+import PageLoader from "../../components/PageLoader";
 
 const AdminRoutes = () => {
   const { userData } = useAuthStore();
@@ -21,7 +23,14 @@ const AdminRoutes = () => {
           <UnAuth store={useAuthStore} redirect={filterNav?.[0]?.path || "/"} />
         }
       >
-        <Route path="/" element={<Login navigations={filterNav} />} />
+        <Route
+          path="/"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <Login navigations={filterNav} />
+            </Suspense>
+          }
+        />
       </Route>
 
       <Route element={<Auth store={useAuthStore} redirect="/" />}>

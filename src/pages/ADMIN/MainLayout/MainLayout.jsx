@@ -15,6 +15,8 @@ const Mainlayout = ({ navigations }) => {
 
   const { reset } = useAuthStore();
   const location = useLocation();
+  console.log(location);
+  console.log(location.pathname);
 
   return (
     <Layout style={{ height: "100vh" }}>
@@ -35,8 +37,8 @@ const Mainlayout = ({ navigations }) => {
         <div className="p-2 flex items-center gap-2">
           <img src={sirmmpc} style={{ borderRadius: "50%", width: "50px" }} />
           {!collapsed && (
-            <span className="text-[18px] font-['Poppins'] w-full">
-              Cooperative
+            <span className="text-[18px] font-['Poppins'] w-full overflow-hidden">
+              San Isidro Cooperativeaaaaaaaaa
             </span>
           )}
         </div>
@@ -44,7 +46,11 @@ const Mainlayout = ({ navigations }) => {
           {navigations.map((item) => {
             if (item.children) {
               return (
-                <Menu.SubMenu key={item.id} icon={item.icon} title={item.name}>
+                <Menu.SubMenu
+                  key={item.path}
+                  icon={item.icon}
+                  title={item.name}
+                >
                   {item.children.map((child) => (
                     <Menu.Item key={child.path} icon={child.icon}>
                       <Link to={`${item.path}/${child.path}`}>
@@ -56,7 +62,7 @@ const Mainlayout = ({ navigations }) => {
               );
             } else {
               return (
-                <Menu.Item key={item.id} icon={item.icon}>
+                <Menu.Item key={item.path} icon={item.icon}>
                   <Link to={item.path}>{item.name}</Link>
                 </Menu.Item>
               );
@@ -89,7 +95,6 @@ const Mainlayout = ({ navigations }) => {
         </Header>
         <Content
           style={{
-            overflow: "hidden",
             margin: "12px 10px",
             padding: 24,
             minHeight: 280,

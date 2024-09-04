@@ -1,5 +1,5 @@
 import ReusableCard from "../../../components/Reusable/Card/ReusableCard";
-import RegistrationForm from "./Forms/RegistrationForm";
+import RegistrationForm from "./RegistrationForm";
 
 const Registration = () => {
   return (

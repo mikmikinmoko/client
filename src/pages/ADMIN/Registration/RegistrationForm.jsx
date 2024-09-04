@@ -1,12 +1,10 @@
-import { Button, DatePicker, Form, Input, message, Modal, Select } from "antd";
-import brgy from "../../../../assets/resources/json/refbrgy.json";
-import city from "../../../../assets/resources/json/refcitymun.json";
-import province from "../../../../assets/resources/json/refprovince.json";
-import region from "../../../../assets/resources/json/refregion.json";
-import { useEffect } from "react";
-import { useRegistration } from "../../../../services/admin/request/membership-controller";
+import { Button, DatePicker, Form, Input, message, Select } from "antd";
+import brgy from "../../../assets/resources/json/refbrgy.json";
+import city from "../../../assets/resources/json/refcitymun.json";
+import province from "../../../assets/resources/json/refprovince.json";
+import region from "../../../assets/resources/json/refregion.json";
+import { useRegistration } from "../../../services/admin/request/membership";
 import dayjs from "dayjs";
-import GenerateQR from "../../QRCode/QRCode";
 
 const RegistrationForm = () => {
   const [form] = Form.useForm();
