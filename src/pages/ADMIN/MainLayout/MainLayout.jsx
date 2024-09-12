@@ -15,12 +15,11 @@ const Mainlayout = ({ navigations }) => {
 
   const { reset } = useAuthStore();
   const location = useLocation();
-  console.log(location);
-  console.log(location.pathname);
 
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
+        width={230}
         trigger={null}
         collapsible
         collapsed={collapsed}

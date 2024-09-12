@@ -1,5 +1,5 @@
 import { UserOutlined } from "@ant-design/icons";
-import { Button, Dropdown, Form, Input, message } from "antd";
+import { Button, Dropdown, Form, Input, message, Tag } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import ReusableDrawer from "../../../../components/Reusable/Drawer/ReusableDrawer";
@@ -9,11 +9,13 @@ import {
   useGetPendingMembers,
 } from "../../../../services/admin/request/membership";
 import { useSelectedMember } from "../../../../store/admin/useMembership";
+import { useOpenDrawer } from "../../../../components/Reusable/useReusableDrawer";
 
 const Pending = () => {
   const [form] = Form.useForm();
   const pending = useGetPendingMembers(0);
   const [showDrawer, setShowDrawer] = useState(false);
+  const { drawers, setOpen, toggleDrawer } = useOpenDrawer();
   const { setSelectedMember, selectedMember } = useSelectedMember();
   const accpet = useAcceptPendingRequest();
 
@@ -26,7 +28,10 @@ const Pending = () => {
               {
                 label: (
                   <Button
-                    onClick={() => handleDrawer(data)}
+                    onClick={() => {
+                      toggleDrawer("pending");
+                      setSelectedMember(data);
+                    }}
                     className="flex items-center w-full"
                     icon={<UserOutlined style={{ color: "#1890ff" }} />}
                   >
@@ -96,6 +101,25 @@ const Pending = () => {
         }
       : {},
     {
+      title: "Status",
+      dataIndex: "status",
+      render: (a) => {
+        return (
+          <Tag color={a === 0 ? "#FFC107" : "#28A745"}>
+            {a === 0 ? (
+              <div className="font-semibold font-['Poppins'] uppercase">
+                pending
+              </div>
+            ) : (
+              <div className="font-semibold font-['Poppins'] uppercase">
+                approved
+              </div>
+            )}
+          </Tag>
+        );
+      },
+    },
+    {
       title: "First Name",
       dataIndex: "firstName",
       render: (a) => {
@@ -131,18 +155,17 @@ const Pending = () => {
     },
   ];
 
-  const handleDrawer = (data) => {
-    setShowDrawer(!showDrawer);
-    setSelectedMember(data);
-  };
+  // const handleDrawer = (data) => {
+  //   setShowDrawer(!showDrawer);
+  //   setSelectedMember(data);
+  // };
   const onFinish = (value) => {
-    console.log(value);
     accpet.mutate(
       { body: value, param: selectedMember?.accountId },
       {
         onSuccess: (data) => {
           pending.refetch();
-          setShowDrawer(!showDrawer);
+          toggleDrawer("pending", false);
           message.success(data?.data.message);
         },
       }
@@ -152,11 +175,11 @@ const Pending = () => {
   return (
     <>
       <ReusableDrawer
-        open={showDrawer}
+        open={drawers["pending"] || false}
         placement={"bottom"}
         height={"70%"}
         className="rounded-t-md"
-        onClose={() => setShowDrawer(!showDrawer)}
+        onClose={() => setOpen("pending", false)}
         title={"Pending Application"}
         footer={
           <div className="flex justify-end py-3">
@@ -191,6 +214,9 @@ const Pending = () => {
           </Form>
         </div>
       </ReusableDrawer>
+      <div className="flex justify-between items-center py-4">
+        <div className="text-[18px] text-[#7a7a7a] font-semibold">Pending</div>
+      </div>
       <ReusableTable
         data={pending?.data?.data}
         columns={columns}

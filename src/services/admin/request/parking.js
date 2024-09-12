@@ -7,21 +7,27 @@ import {
   getPendingMembers,
   registration,
 } from "../api/membership";
-import { addStallOwner, getStallOwners } from "../api/stall";
+import { addParking, getApprovedMember, getParking } from "../api/parking";
 
-export const useGetStallOwners = () => {
+export const useGetParking = () => {
   return useQuery({
-    queryKey: ["getStallOwners"],
-    queryFn: getStallOwners,
+    queryKey: ["getParking"],
+    queryFn: getParking,
     refetchOnWindowFocus: false,
   });
 };
-export const useAddStallOwner = () => {
-  return useMutation({
-    mutationFn: addStallOwner,
+export const useGetApprovedMember = () => {
+  return useQuery({
+    queryKey: ["getApprovedMember"],
+    queryFn: getApprovedMember,
+    refetchOnWindowFocus: false,
   });
 };
-
+export const useAddParking = () => {
+  return useMutation({
+    mutationFn: addParking,
+  });
+};
 export const useEditMember = () => {
   return useMutation({
     mutationFn: editMember,

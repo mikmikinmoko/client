@@ -15,7 +15,7 @@ createRoot(document.getElementById("root")).render(
           colorPrimary: "#e5f5e0",
         },
       }}
-    > */}
+    > */} 
     <QueryClientProvider client={queryClient}>
       <App />
     </QueryClientProvider>
