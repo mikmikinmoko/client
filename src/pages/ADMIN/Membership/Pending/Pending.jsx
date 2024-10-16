@@ -83,6 +83,7 @@ const Pending = () => {
                 arrow={true}
               >
                 <Button
+                ghost
                   type="primary"
                   //   icon={
                   //     clickAction === data.accountId ? (

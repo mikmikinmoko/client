@@ -19,7 +19,7 @@ const Mainlayout = ({ navigations }) => {
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
-        width={230}
+        width={300}
         trigger={null}
         collapsible
         collapsed={collapsed}

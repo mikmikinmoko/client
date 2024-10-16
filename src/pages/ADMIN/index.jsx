@@ -8,6 +8,8 @@ const Accepted = lazy(() => import("./Membership/Accepted/Accepted"));
 const Stall = lazy(() => import("./Stall/Owner/Stall"));
 const Type = lazy(() => import("./Stall/Type/Type"));
 const Parking = lazy(() => import("./Parking/Parking"));
+const Events = lazy(() => import("./Events/Events"));
+const Loan = lazy(() => import("./Loan/Loan"));
 
 export {
   Dashboard,
@@ -18,4 +20,6 @@ export {
   Parking,
   Accepted,
   Type,
+  Events,
+  Loan,
 };

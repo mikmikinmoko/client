@@ -15,6 +15,8 @@ const Stall = () => {
   const { drawers, setOpen, toggleDrawer } = useOpenDrawer();
   const addStallOwner = useAddStallOwner();
 
+  console.log(data);
+
   const onFinish = (val) => {
     const { dateStarted, ...newVal } = val;
     addStallOwner.mutate(
@@ -63,12 +65,16 @@ const Stall = () => {
     },
 
     {
-      title: "Authorize Person",
-      dataIndex: "authorizePerson",
-    },
-    {
       title: "Section",
       dataIndex: "section",
+    },
+    {
+      title: "Rate",
+      dataIndex: "rate",
+    },
+    {
+      title: "Authorize Person",
+      dataIndex: "authorizePerson",
     },
   ];
 

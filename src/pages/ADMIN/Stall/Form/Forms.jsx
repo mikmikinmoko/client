@@ -34,6 +34,9 @@ const StallForm = ({ form, onFinish }) => {
       <Form.Item label="Authorize Person" name="authorizePerson">
         <Input />
       </Form.Item>
+      <Form.Item label="Rate" name="rate">
+        <Input />
+      </Form.Item>
       <Form.Item label="Date Start" name="dateStarted">
         <DatePicker className="w-full" format={"YYYY-MM-DD"} />
       </Form.Item>
