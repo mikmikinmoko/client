@@ -1,5 +1,5 @@
 import { Button } from "antd";
-import ReusableTable from "../../../components/Reusable/Table/ReusableTable";
+import TableLoan from "./TableLoan";
 
 const Load = () => {
   return (
@@ -8,10 +8,10 @@ const Load = () => {
         <div className="flex justify-between items-center pb-5">
           <div>Loan Management</div>
           <div>
-            <Button>Add Events</Button>
+            <Button>Add Loan</Button>
           </div>
         </div>
-        <ReusableTable />
+        <TableLoan />
       </div>
     </>
   );

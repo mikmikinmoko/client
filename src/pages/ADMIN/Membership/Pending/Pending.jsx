@@ -14,7 +14,6 @@ import { useOpenDrawer } from "../../../../components/Reusable/useReusableDrawer
 const Pending = () => {
   const [form] = Form.useForm();
   const pending = useGetPendingMembers(0);
-  const [showDrawer, setShowDrawer] = useState(false);
   const { drawers, setOpen, toggleDrawer } = useOpenDrawer();
   const { setSelectedMember, selectedMember } = useSelectedMember();
   const accpet = useAcceptPendingRequest();
@@ -83,7 +82,7 @@ const Pending = () => {
                 arrow={true}
               >
                 <Button
-                ghost
+                  ghost
                   type="primary"
                   //   icon={
                   //     clickAction === data.accountId ? (
