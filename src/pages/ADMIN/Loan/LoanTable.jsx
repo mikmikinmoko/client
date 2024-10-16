@@ -1,8 +1,9 @@
 import { Button, Dropdown, Tag } from "antd";
 import ReusableTable from "../../../components/Reusable/Table/ReusableTable";
 import { useGetLoans } from "../../../services/admin/request/loan";
+import { UserOutlined } from "@ant-design/icons";
 
-const TableLoan = () => {
+const LoanTable = () => {
   const { data: loans, isLoading } = useGetLoans();
 
   const columns = [
@@ -14,9 +15,10 @@ const TableLoan = () => {
           {
             label: (
               <Button
-                onClick={() => {}}
+                onClick={() => {
+                  console.log(data);
+                }}
                 className="flex items-center w-full"
-                //   icon={<UserOutlined style={{ color: "#1890ff" }} />}
               >
                 View Details
               </Button>
@@ -25,8 +27,10 @@ const TableLoan = () => {
           },
         ];
         return (
-          <Dropdown menu={{ items }}>
-            <Button>Action</Button>
+          <Dropdown menu={{ items }} trigger={["click"]} arrow={true}>
+            <Button icon={<UserOutlined />} type="primary">
+              Action
+            </Button>
           </Dropdown>
         );
       },
@@ -84,4 +88,4 @@ const TableLoan = () => {
   );
 };
 
-export default TableLoan;
+export default LoanTable;

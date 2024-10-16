@@ -39,39 +39,6 @@ const Pending = () => {
                 ),
                 key: "0",
               },
-
-              // {
-              //   label: (
-              //     <Popconfirm
-              //       description="Are you sure? You want to accept this member"
-              //       onConfirm={() => {
-              //         accept.mutate(
-              //           { param: data.accountId },
-              //           {
-              //             onSuccess: (data) => {
-              //               console.log(data);
-              //               pending.refetch();
-              //               message.success(data?.data.message);
-              //             },
-              //             onError: (err) => {
-              //               console.log(err);
-              //             },
-              //           }
-              //         );
-              //       }}
-              //     >
-              //       <Button
-              //         className="flex items-center  w-full"
-              //         icon={
-              //           <CheckCircleOutlined style={{ color: "#1890ff" }} />
-              //         }
-              //       >
-              //         Accept Request
-              //       </Button>
-              //     </Popconfirm>
-              //   ),
-              //   key: "1",
-              // },
             ];
             return (
               <Dropdown
