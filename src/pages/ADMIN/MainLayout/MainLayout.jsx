@@ -37,7 +37,7 @@ const Mainlayout = ({ navigations }) => {
           <img src={sirmmpc} style={{ borderRadius: "50%", width: "50px" }} />
           {!collapsed && (
             <span className="text-[18px] font-['Poppins'] w-full overflow-hidden">
-              San Isidro Cooperativeaaaaaaaaa
+              San Isidro Cooperative
             </span>
           )}
         </div>

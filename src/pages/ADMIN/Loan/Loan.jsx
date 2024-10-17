@@ -17,8 +17,8 @@ const Load = () => {
         </div>
         <ReusableDrawer
           open={drawers["addLoan"] || false}
-          placement={"bottom"}
-          height={"90%"}
+          placement={"right"}
+          width={"30%"}
           className="rounded-l-md"
           onClose={() => setOpen("addLoan", false)}
           title={"Please input loan details"}
