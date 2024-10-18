@@ -1,11 +1,31 @@
-import { Button } from "antd";
+import { Button, Form, message } from "antd";
 import ReusableDrawer from "../../../components/Reusable/Drawer/ReusableDrawer";
 import { useOpenDrawer } from "../../../components/Reusable/useReusableDrawer";
 import LoanTable from "./LoanTable";
 import LoanDrawer from "./LoanDrawer";
+import { useAddLoan, useGetLoans } from "../../../services/admin/request/loan";
 
 const Load = () => {
   const { drawers, setOpen, toggleDrawer } = useOpenDrawer();
+  const { data: loans, isLoading, refetch } = useGetLoans();
+
+  const [form] = Form.useForm();
+  const addLoan = useAddLoan();
+  console.log(addLoan);
+
+  const onFinish = (val) => {
+    addLoan.mutate(val, {
+      onSuccess: (data) => {
+        refetch();
+        message.success(data?.data?.message);
+        toggleDrawer("addLoan", false);
+      },
+      onError: (err) => {
+        message.warning(err?.response?.data.message);
+      },
+    });
+  };
+
   return (
     <>
       <div className="w-full h-full">
@@ -24,13 +44,15 @@ const Load = () => {
           title={"Please input loan details"}
           footer={
             <div className="flex justify-end">
-              <Button type="primary">Submit Application</Button>
+              <Button type="primary" onClick={() => form.submit()}>
+                Submit Application
+              </Button>
             </div>
           }
         >
-          <LoanDrawer />
+          <LoanDrawer form={form} onFinish={onFinish} />
         </ReusableDrawer>
-        <LoanTable />
+        <LoanTable isLoading={isLoading} loans={loans} />
       </div>
     </>
   );

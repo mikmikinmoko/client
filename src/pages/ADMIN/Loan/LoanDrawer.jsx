@@ -1,9 +1,9 @@
 import { Form, Input, Select } from "antd";
 import { useGetMembers } from "../../../services/admin/request/loan";
 
-const LoanDrawer = () => {
+const LoanDrawer = ({ form, onFinish }) => {
   const { data } = useGetMembers();
-  console.log(data);
+
   const terms = [
     {
       id: 1,
@@ -41,26 +41,29 @@ const LoanDrawer = () => {
       label: "6 Months",
     },
   ];
+
   return (
-    <Form layout="vertical">
-      <Form.Item label="Applicant">
+    <Form layout="vertical" form={form} onFinish={onFinish}>
+      <Form.Item label="Applicant" name="accountId">
         <Select
           onChange={(e) => console.log(e)}
           options={data?.data.map((d) => {
             return {
               value: d.accountId,
-              label: d.fullName,
+              label: `${d.firstName} ${d.middleName ? d.middleName : ""} ${
+                d.lastName
+              }`,
             };
           })}
         />
       </Form.Item>
-      <Form.Item label="Stall No">
+      <Form.Item label="Stall No" name="stallNo">
         <Input placeholder="Stall No" />
       </Form.Item>
-      <Form.Item label="Amount">
+      <Form.Item label="Amount" name="amount">
         <Input placeholder="Amount" />
       </Form.Item>
-      <Form.Item label="Terms">
+      <Form.Item label="Terms" name="term">
         <Select
           placeholder="Please Select Terms"
           className="uppercase"

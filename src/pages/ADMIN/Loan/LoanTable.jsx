@@ -3,9 +3,7 @@ import ReusableTable from "../../../components/Reusable/Table/ReusableTable";
 import { useGetLoans } from "../../../services/admin/request/loan";
 import { UserOutlined } from "@ant-design/icons";
 
-const LoanTable = () => {
-  const { data: loans, isLoading } = useGetLoans();
-
+const LoanTable = ({ isLoading, loans }) => {
   const columns = [
     {
       title: "Action",
@@ -60,9 +58,13 @@ const LoanTable = () => {
     },
     {
       title: "Applicant",
-      dataIndex: "nameOfApplicant",
+      // dataIndex: "nameOfApplicant",
       render: (a) => {
-        return <div className="capitalize">{a}</div>;
+        return (
+          <div className="capitalize">{`${a.firstName} ${
+            a.middleName ? a.middleName : null
+          } ${a.lastName}`}</div>
+        );
       },
     },
 
