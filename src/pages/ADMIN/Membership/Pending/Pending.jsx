@@ -1,5 +1,5 @@
 import { UserOutlined } from "@ant-design/icons";
-import { Button, Dropdown, Form, Input, message, Tag } from "antd";
+import { Button, Dropdown, Form, Input, message, Popconfirm, Tag } from "antd";
 import dayjs from "dayjs";
 import { useState } from "react";
 import ReusableDrawer from "../../../../components/Reusable/Drawer/ReusableDrawer";
@@ -150,9 +150,11 @@ const Pending = () => {
         title={"Pending Application"}
         footer={
           <div className="flex justify-end py-3">
-            <Button type="primary" onClick={() => form.submit()}>
-              Accept Request
-            </Button>
+            <Popconfirm title="" description="Are you sure to accept ?">
+              <Button type="primary" onClick={() => form.submit()}>
+                Accept Request
+              </Button>
+            </Popconfirm>
           </div>
         }
       >

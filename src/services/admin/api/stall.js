@@ -14,22 +14,13 @@ export const addStallOwner = async (body) => {
   );
   return result;
 };
-export const editMember = async ({ param }) => {
-  const result = await defaultAxios.post(
-    `/api/admin/membership/viewProfile/${param}`
-  );
+
+export const getStallTypes = async () => {
+  const result = await defaultAxios.get("/api/admin/stall/getStallTypes");
   return result;
 };
-export const getPendingMembers = async ({ param }) => {
-  const result = await defaultAxios.get(
-    `/api/admin/membership/getPending/${param}`
-  );
-  return result;
-};
-export const acceptPendingRequest = async ({ param, body }) => {
-  const result = await defaultAxios.post(
-    `/api/admin/membership/acceptMember/${param}`,
-    body
-  );
+
+export const addStallType = async (body) => {
+  const result = await defaultAxios.post("/api/admin/stall/addStallType", body);
   return result;
 };

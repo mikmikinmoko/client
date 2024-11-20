@@ -1,4 +1,4 @@
-import { Button, Form } from "antd";
+import { Button, Dropdown, Form } from "antd";
 import ReusableTable from "../../../components/Reusable/Table/ReusableTable";
 import { useOpenDrawer } from "../../../components/Reusable/useReusableDrawer";
 import {
@@ -8,6 +8,7 @@ import {
 import dayjs from "dayjs";
 import ReusableDrawer from "../../../components/Reusable/Drawer/ReusableDrawer";
 import ParkingForm from "./Form/ParkingForm";
+import { UserOutlined } from "@ant-design/icons";
 
 const Parking = () => {
   const [form] = Form.useForm();
@@ -33,6 +34,34 @@ const Parking = () => {
   };
 
   const columns = [
+    {
+      title: "Action",
+      dataIndex: "",
+      render: (data) => {
+        const items = [
+          {
+            label: (
+              <Button
+                onClick={() => {
+                  // console.log(data);
+                }}
+                className="flex items-center w-full"
+              >
+                View Details
+              </Button>
+            ),
+            key: "0",
+          },
+        ];
+        return (
+          <Dropdown menu={{ items }} trigger={["click"]} arrow={true}>
+            <Button icon={<UserOutlined />} type="primary">
+              Action
+            </Button>
+          </Dropdown>
+        );
+      },
+    },
     {
       title: "First Name",
       dataIndex: "firstName",

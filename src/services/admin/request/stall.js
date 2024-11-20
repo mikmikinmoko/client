@@ -7,7 +7,12 @@ import {
   getPendingMembers,
   registration,
 } from "../api/membership";
-import { addStallOwner, getStallOwners } from "../api/stall";
+import {
+  addStallOwner,
+  addStallType,
+  getStallOwners,
+  getStallTypes,
+} from "../api/stall";
 
 export const useGetStallOwners = () => {
   return useQuery({
@@ -16,25 +21,39 @@ export const useGetStallOwners = () => {
     refetchOnWindowFocus: false,
   });
 };
+
 export const useAddStallOwner = () => {
   return useMutation({
     mutationFn: addStallOwner,
   });
 };
 
-export const useEditMember = () => {
-  return useMutation({
-    mutationFn: editMember,
-  });
-};
-export const useGetPendingMembers = (status) => {
+export const useGetStallTypes = () => {
   return useQuery({
-    queryKey: ["getPendingMembers", status],
-    queryFn: () => getPendingMembers({ param: status }),
+    queryKey: ["getStallTypes"],
+    queryFn: getStallTypes,
+    refetchOnWindowFocus: false,
   });
 };
-export const useAcceptPendingRequest = () => {
+
+export const useAddStallType = () => {
   return useMutation({
-    mutationFn: acceptPendingRequest,
+    mutationFn: addStallType,
   });
 };
+// export const useEditMember = () => {
+//   return useMutation({
+//     mutationFn: editMember,
+//   });
+// };
+// export const useGetPendingMembers = (status) => {
+//   return useQuery({
+//     queryKey: ["getPendingMembers", status],
+//     queryFn: () => getPendingMembers({ param: status }),
+//   });
+// };
+// export const useAcceptPendingRequest = () => {
+//   return useMutation({
+//     mutationFn: acceptPendingRequest,
+//   });
+// };
