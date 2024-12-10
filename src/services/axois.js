@@ -26,8 +26,6 @@ export const getUserStore = (USER) => {
   return USERS[USER]?.store?.getState();
 };
 
-console.log(getUserStore());
-
 export const createAxiosInstanceWithInterceptor = (type = "data", USER) => {
   const headers = {
     "Access-Control-Allow-Origin": "*",
