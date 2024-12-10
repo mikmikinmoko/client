@@ -26,6 +26,9 @@ const RegistrationForm = () => {
           message.success(data.data.message);
           form.resetFields("");
         },
+        onError: (err) => {
+          message.warning(err.response.data.message);
+        },
       }
     );
   };

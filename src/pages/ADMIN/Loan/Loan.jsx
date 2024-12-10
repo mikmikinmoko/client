@@ -4,6 +4,7 @@ import { useOpenDrawer } from "../../../components/Reusable/useReusableDrawer";
 import LoanTable from "./LoanTable";
 import LoanDrawer from "./LoanDrawer";
 import { useAddLoan, useGetLoans } from "../../../services/admin/request/loan";
+import { Helmet } from "react-helmet";
 
 const Load = () => {
   const { drawers, setOpen, toggleDrawer } = useOpenDrawer();
@@ -30,6 +31,9 @@ const Load = () => {
     <>
       <div className="w-full h-full">
         <div className="flex justify-between items-center pb-5">
+          <Helmet>
+            <title>SIRMMPC | Loan Management</title>
+          </Helmet>
           <div>Loan Management</div>
           <div>
             <Button onClick={() => toggleDrawer("addLoan")}>Add Loan</Button>

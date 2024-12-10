@@ -34,6 +34,10 @@ const LoanTable = ({ isLoading, loans }) => {
       },
     },
     {
+      title: "Reference Number",
+      dataIndex: "refNumber",
+    },
+    {
       title: "Status",
       dataIndex: "status",
       render: (a) => {

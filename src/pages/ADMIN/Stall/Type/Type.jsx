@@ -13,8 +13,6 @@ const Type = () => {
   const [form] = Form.useForm();
   const addStallType = useAddStallType();
 
-  console.log(form);
-
   const onHandleOpen = () => {
     setNewType(!newType);
   };
@@ -53,10 +51,15 @@ const Type = () => {
         onClose={onHandleClose}
         form={form}
         onFinish={onFinish}
+        isLoading={addStallType.isLoading}
       />
       <Card
         title="Stall Type"
-        extra={<Button onClick={onHandleOpen}>Add New Type</Button>}
+        extra={
+          <Button onClick={onHandleOpen} type="primary">
+            Add New Type
+          </Button>
+        }
       >
         <ReusableTable
           columns={columns}
