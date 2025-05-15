@@ -16,6 +16,27 @@ const Mainlayout = ({ navigations }) => {
   const { reset } = useAuthStore();
   const location = useLocation();
 
+  const items = navigations.map((item) => {
+    if (item.children) {
+      return {
+        key: item.path,
+        icon: item.icon,
+        label: item.name,
+        children: item.children.map((child) => ({
+          key: `${item.path}/${child.path}`,
+          icon: child.icon,
+          label: <Link to={`${item.path}/${child.path}`}>{child.name}</Link>,
+        })),
+      };
+    } else {
+      return {
+        key: item.path,
+        icon: item.icon,
+        label: <Link to={item.path}>{item.name}</Link>,
+      };
+    }
+  });
+
   return (
     <Layout style={{ height: "100vh" }}>
       <Sider
@@ -41,33 +62,39 @@ const Mainlayout = ({ navigations }) => {
             </span>
           )}
         </div>
-        <Menu mode="inline" selectedKeys={[location.pathname]} className="py-3">
-          {navigations.map((item) => {
-            if (item.children) {
-              return (
-                <Menu.SubMenu
-                  key={item.path}
-                  icon={item.icon}
-                  title={item.name}
-                >
-                  {item.children.map((child) => (
-                    <Menu.Item key={child.path} icon={child.icon}>
-                      <Link to={`${item.path}/${child.path}`}>
-                        {child.name}
-                      </Link>
-                    </Menu.Item>
-                  ))}
-                </Menu.SubMenu>
-              );
-            } else {
-              return (
-                <Menu.Item key={item.path} icon={item.icon}>
-                  <Link to={item.path}>{item.name}</Link>
-                </Menu.Item>
-              );
-            }
-          })}
-        </Menu>
+        <Menu
+          mode="inline"
+          selectedKeys={[location.pathname]}
+          className=""
+          items={items}
+        />
+        {/* <Menu mode="inline" selectedKeys={[location.pathname]} className="py-3"> */}
+        {/*   {navigations.map((item) => { */}
+        {/*     if (item.children) { */}
+        {/*       return ( */}
+        {/*         <Menu.SubMenu */}
+        {/*           key={item.path} */}
+        {/*           icon={item.icon} */}
+        {/*           title={item.name} */}
+        {/*         > */}
+        {/*           {item.children.map((child) => ( */}
+        {/*             <Menu.Item key={child.path} icon={child.icon}> */}
+        {/*               <Link to={`${item.path}/${child.path}`}> */}
+        {/*                 {child.name} */}
+        {/*               </Link> */}
+        {/*             </Menu.Item> */}
+        {/*           ))} */}
+        {/*         </Menu.SubMenu> */}
+        {/*       ); */}
+        {/*     } else { */}
+        {/*       return ( */}
+        {/*         <Menu.Item key={item.path} icon={item.icon}> */}
+        {/*           <Link to={item.path}>{item.name}</Link> */}
+        {/*         </Menu.Item> */}
+        {/*       ); */}
+        {/*     } */}
+        {/*   })} */}
+        {/* </Menu> */}
       </Sider>
       <Layout>
         <Header

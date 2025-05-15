@@ -60,7 +60,7 @@ export const nav = [
   // },
 
   {
-    path: "events",
+    path: "/events",
     name: "Events Management",
     // component: <ADMIN.Member />,
     icon: <UserOutlined />,
@@ -78,7 +78,7 @@ export const nav = [
     ],
   },
   {
-    path: "member",
+    path: "/member",
     name: "Members Management",
     // component: <ADMIN.Member />,
     icon: <UserOutlined />,
@@ -112,7 +112,7 @@ export const nav = [
     ],
   },
   {
-    path: "stalls",
+    path: "/stalls",
     name: "Stalls Management",
     // component: <ADMIN.Stall />,
     icon: <HomeOutlined />,
@@ -150,13 +150,33 @@ export const nav = [
     accountType: "MEMBER",
   },
   {
-    path: "/loan",
+    path: "/loans",
     name: "Loan Management",
     component: <ADMIN.Loan />,
     icon: <CarOutlined />,
     isFilter: true,
     isShow: true,
     accountType: "MEMBER",
+    children: [
+      {
+        path: "members",
+        name: "Loans",
+        component: <ADMIN.Loan />,
+        icon: <CarOutlined />,
+        isFilter: true,
+        isShow: true,
+        accountType: "MEMBER",
+      },
+      {
+        path: "terms",
+        name: "Loans Terms",
+        component: <ADMIN.LoanTerms />,
+        icon: <CarOutlined />,
+        isFilter: true,
+        isShow: true,
+        accountType: "MEMBER",
+      },
+    ],
   },
   {
     path: "/account",

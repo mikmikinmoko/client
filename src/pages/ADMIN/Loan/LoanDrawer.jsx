@@ -1,4 +1,4 @@
-import { Form, Input, Select } from "antd";
+import { DatePicker, Form, Input, Select } from "antd";
 import { useGetMembers } from "../../../services/admin/request/loan";
 
 const LoanDrawer = ({ form, onFinish }) => {
@@ -44,8 +44,9 @@ const LoanDrawer = ({ form, onFinish }) => {
 
   return (
     <Form layout="vertical" form={form} onFinish={onFinish}>
-      <Form.Item label="Applicant" name="accountId">
+      <Form.Item label="Borrower Name" name="accountId">
         <Select
+          placeholder="Select Borrower"
           onChange={(e) => console.log(e)}
           options={data?.data.map((d) => {
             return {
@@ -57,15 +58,18 @@ const LoanDrawer = ({ form, onFinish }) => {
           })}
         />
       </Form.Item>
+
+      {/* <Form.Item label="Date" name="dateLoan"> */}
+      {/*   <DatePicker className="w-full" format={"YYYY-MM-DD"} /> */}
+      {/* </Form.Item> */}
+
       <Form.Item label="Stall No" name="stallNo">
         <Input placeholder="Stall No" />
       </Form.Item>
-      <Form.Item label="Amount" name="amount">
-        <Input placeholder="Amount" />
-      </Form.Item>
+
       <Form.Item label="Terms" name="term">
         <Select
-          placeholder="Please Select Terms"
+          placeholder="Select Terms"
           className="uppercase"
           options={terms.map((t) => {
             return {
@@ -74,6 +78,30 @@ const LoanDrawer = ({ form, onFinish }) => {
             };
           })}
         />
+      </Form.Item>
+
+      <Form.Item label="Amount" name="amount">
+        <Input placeholder="Amount" />
+      </Form.Item>
+
+      <Form.Item label="Interest %" name="interest">
+        <Input disabled placeholder="Interest on loan" />
+      </Form.Item>
+
+      <Form.Item label="Loan Interest" name="loanInterest">
+        <Input disabled placeholder="Interest on loan" />
+      </Form.Item>
+
+      <Form.Item label="CBU" name="cbu">
+        <Input disabled placeholder="CBU" />
+      </Form.Item>
+
+      <Form.Item label="Savings" name="savings">
+        <Input disabled placeholder="Savings" />
+      </Form.Item>
+
+      <Form.Item label="Savings" name="savings">
+        <Input disabled placeholder="Savings" />
       </Form.Item>
     </Form>
   );

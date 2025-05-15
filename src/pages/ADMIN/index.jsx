@@ -10,6 +10,7 @@ const Type = lazy(() => import("./Stall/Type/Type"));
 const Parking = lazy(() => import("./Parking/Parking"));
 const Events = lazy(() => import("./Events/Events"));
 const Loan = lazy(() => import("./Loan/Loan"));
+const LoanTerms = lazy(() => import("./Loan/LoanTerm/LoanTerms.jsx"));
 
 export {
   Dashboard,
@@ -22,4 +23,5 @@ export {
   Type,
   Events,
   Loan,
+  LoanTerms,
 };

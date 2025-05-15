@@ -11,7 +11,7 @@ const AdminRoutes = () => {
   const { userData } = useAuthStore();
 
   const filterNav = nav.filter(
-    (nav) => nav.accountType === userData?.accountType
+    (nav) => nav.accountType === userData?.accountType,
   );
   return (
     <Routes>
@@ -46,7 +46,7 @@ const AdminRoutes = () => {
                 path={`${obj.path}/${path}`}
                 element={component}
               />
-            ))
+            )),
           )}
         </Route>
       </Route>

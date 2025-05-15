@@ -4,8 +4,8 @@ import { createJSONStorage, persist } from "zustand/middleware";
 export const useAuthStore = create(
   persist(
     (set) => ({
-      userData: null,
-      token: null,
+      userData: { accountId: "asdfjhka", accountType: "MEMBER" },
+      token: "alkjsdhfklajh",
       isSignOut: false,
 
       setuserData: (userData) => set({ userData }),
@@ -16,6 +16,6 @@ export const useAuthStore = create(
     {
       name: "Auth",
       storage: createJSONStorage(() => sessionStorage),
-    }
-  )
+    },
+  ),
 );
