@@ -25,6 +25,7 @@ const Load = () => {
       loanInterest: 3,
     });
   }, [inputs]);
+
   const onFinish = (val) => {
     const { date, ...values } = val;
     console.log(values);
