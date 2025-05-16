@@ -11,7 +11,7 @@ const Parking = lazy(() => import("./Parking/Parking"));
 const Events = lazy(() => import("./Events/Events"));
 const Loan = lazy(() => import("./Loan/Loan"));
 const LoanTerms = lazy(() => import("./Loan/LoanTerm/LoanTerms.jsx"));
-
+const Members = lazy(() => import("./Membership/Members.jsx"));
 export {
   Dashboard,
   Accounts,
@@ -24,4 +24,5 @@ export {
   Events,
   Loan,
   LoanTerms,
+  Members,
 };
