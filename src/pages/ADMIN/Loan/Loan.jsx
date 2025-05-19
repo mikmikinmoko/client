@@ -21,7 +21,8 @@ const Load = () => {
     const interestOnLoan = inputs?.months * 0.015;
     const other = inputs?.principal * 0.02;
     form.setFieldsValue({
-      loanInterest: interestOnLoan ? interestOnLoan : 0,
+      loanInterest: inputs?.principal ? inputs.principal * interestOnLoan : 0,
+      interest: interestOnLoan ? interestOnLoan : 0,
       cbu: other ? other : 0,
       savings: other ? other : 0,
       serviceFee: other ? other : 0,

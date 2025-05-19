@@ -1,6 +1,7 @@
 import { Drawer, Form, Input, Select, Button } from "antd";
 import { useAddLoanTerm } from "../../../../../services/admin/request/loan";
 import { useLoanStore } from "../../../../../store/admin/useLoan";
+import moment from "moment";
 
 const LoanTermsDrawer = ({ form }) => {
   const loanTermDrawer = useLoanStore((state) => state.loanTermDrawer);
@@ -9,13 +10,18 @@ const LoanTermsDrawer = ({ form }) => {
   const addTerm = useAddLoanTerm();
 
   const onFinish = (val) => {
-    console.log(val);
-    addTerm.mutate(val, {
-      onSuccess: () => {
-        setLoanTermDrawer(false);
-        form.resetFields();
+    addTerm.mutate(
+      {
+        ...val,
+        dateCreated: moment(val.dateCreated.$d).format("YYYY-MM-DD HH:mm:ss"),
       },
-    });
+      {
+        onSuccess: () => {
+          setLoanTermDrawer(false);
+          form.resetFields();
+        },
+      },
+    );
   };
   return (
     <Drawer

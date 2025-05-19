@@ -21,7 +21,7 @@ const LoanDrawer = ({ form, onFinish }) => {
         />
       </Form.Item>
 
-      <Form.Item label="Date" name="dateLoan">
+      <Form.Item label="Date" name="dateCreated">
         <DatePicker className="w-full" format={"YYYY-MM-DD"} />
       </Form.Item>
 
@@ -37,6 +37,10 @@ const LoanDrawer = ({ form, onFinish }) => {
         <Input disabled placeholder="Interest on loan" />
       </Form.Item>
 
+      <Form.Item label="Interest (%)" name="interest">
+        <Input disabled placeholder="Interest %" />
+      </Form.Item>
+
       <Form.Item label="CBU" name="cbu">
         <Input disabled placeholder="CBU" />
       </Form.Item>
@@ -45,8 +49,8 @@ const LoanDrawer = ({ form, onFinish }) => {
         <Input disabled placeholder="Savings" />
       </Form.Item>
 
-      <Form.Item label="Savings" name="savings">
-        <Input disabled placeholder="Savings" />
+      <Form.Item label="Service Fee" name="serviceFee">
+        <Input disabled placeholder="Service Fee" />
       </Form.Item>
     </Form>
   );
