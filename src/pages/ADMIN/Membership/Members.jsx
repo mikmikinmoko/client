@@ -9,6 +9,7 @@ const Members = () => {
   // const selectedTab = useMembersStore((state) => state.selectedTab);
   // const setSelectedTab = useMembersStore((state) => state.setSelectedTab);
 
+<<<<<<< HEAD
   const { data, isLoading } = useGetMembers();
   const pendingMembers = data?.filter((m) => m.status === 0);
   const acceptedMembers = data?.filter((m) => m.status === 1);
@@ -38,6 +39,9 @@ const Members = () => {
       dataIndex: "lastName",
     },
   ];
+=======
+  const getMembers = useGetMembers(selectedTab);
+>>>>>>> 3145773ae98d755cbecbed3329432929a117c98f
 
   const tabs = [
     {
