@@ -41,6 +41,9 @@ const Members = () => {
   ];
 =======
   const getMembers = useGetMembers(selectedTab);
+<<<<<<< HEAD
+>>>>>>> 3a59d1005b5f7403b2446a3184ed30c35c57f710
+=======
 >>>>>>> 3a59d1005b5f7403b2446a3184ed30c35c57f710
 
   const tabs = [
