@@ -67,14 +67,14 @@ export const createAxiosInstanceWithInterceptor = (type = "data", USER) => {
       const errMessage = error.response?.data;
       if (errMessage?.message === "Invalid token." || errMessage?.code == 300) {
         message.warning(
-          "Unable to process transaction. You have to login again."
+          "Unable to process transaction. You have to login again.",
         );
         reset();
       }
       // Any status codes that falls outside the range of 2xx cause this function to trigger
       // Do something with response error
       return Promise.reject(error);
-    }
+    },
   );
 
   return instance;

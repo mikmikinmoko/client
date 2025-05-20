@@ -1,12 +1,10 @@
 import { create } from "zustand";
 
-export const useSelectedMember = create((set) => ({
-  selectedMember: [],
+export const useMembersStore = create((set) => ({
+  selectedMember: null,
 
-  setSelectedMember: (selectedMember) => set({ selectedMember }),
-}));
+  selectedTab: "0",
 
-export const useMode = create((set) => ({
-  mode: ["pending", "accept"],
-  setMode: (mode) => set({ mode }),
+  setSelectedMember: (member) => set(() => ({ selectedMember: member })),
+  setSelectedTab: (tab) => set(() => ({ selectedTab: tab })),
 }));

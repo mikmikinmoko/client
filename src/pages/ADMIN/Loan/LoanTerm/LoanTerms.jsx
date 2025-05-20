@@ -1,16 +1,39 @@
 import { Button, Form } from "antd";
 import { Helmet } from "react-helmet";
-import { useOpenDrawer } from "../../../../components/Reusable/useReusableDrawer";
-import ReusableDrawer from "../../../../components/Reusable/Drawer/ReusableDrawer";
 import LoanTermsDrawer from "./Drawer/LoanTermsDrawer";
 import { Table } from "ant-table-extensions";
+import { useGetLoanTerms } from "../../../../services/admin/request/loan";
+import moment from "moment";
+import { useLoanStore } from "../../../../store/admin/useLoan";
 
 const LoanTerms = () => {
   const [form] = Form.useForm();
-  const drawers = useOpenDrawer((state) => state.drawers);
-  const setOpen = useOpenDrawer((state) => state.setOpen);
-  const toggleDrawer = useOpenDrawer((state) => state.toggleDrawer);
+  const setLoanTermDrawer = useLoanStore((state) => state.setLoanTermDrawer);
+  const { data, isLoading } = useGetLoanTerms();
 
+  const columns = [
+    {
+      title: "Account Id",
+      dataIndex: "accountId",
+    },
+    {
+      title: "Days",
+      dataIndex: "days",
+    },
+    {
+      title: "Interest",
+      dataIndex: "interest",
+    },
+    {
+      title: "Description",
+      dataIndex: "descriptions",
+    },
+    {
+      title: "Date Created",
+      dataIndex: "dateCreated",
+      render: (date) => moment(date).format("lll"),
+    },
+  ];
   return (
     <div className="w-full h-full">
       <div className="flex justify-between items-center pb-5">
@@ -19,28 +42,11 @@ const LoanTerms = () => {
         </Helmet>
         <div>Loan Terms</div>
         <div>
-          <Button onClick={() => toggleDrawer("addTerms")}>Add Terms</Button>
+          <Button onClick={() => setLoanTermDrawer(true)}>Add Terms</Button>
         </div>
       </div>
-      <ReusableDrawer
-        open={drawers["addTerms"] || false}
-        placement={"right"}
-        width={"30%"}
-        onClose={() => setOpen("addTerms", false)}
-        title={"Add Terms"}
-        footer={
-          <Button
-            onClick={() => form.submit()}
-            type="primary"
-            className="float-right"
-          >
-            Submit
-          </Button>
-        }
-      >
-        <LoanTermsDrawer form={form} />
-      </ReusableDrawer>
-      <Table />
+      <LoanTermsDrawer form={form} />
+      <Table columns={columns} dataSource={data} loading={isLoading} />
     </div>
   );
 };

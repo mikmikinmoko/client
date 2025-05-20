@@ -28,7 +28,7 @@ export const nav = [
     icon: <DashboardIcon />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
   },
 
   // {
@@ -38,7 +38,7 @@ export const nav = [
   //   icon: <UsergroupAddOutlined />,
   //   isFilter: true,
   //   isShow: true,
-  //   accountType: "MEMBER",
+  //   accountType: "ADMIN",
   //   children: [
   //     {
   //       path: "member",
@@ -66,50 +66,50 @@ export const nav = [
     icon: <UserOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
     children: [
       {
         path: "event",
         name: "Event",
         component: <ADMIN.Events />,
         icon: <ClockCircleOutlined />,
-        accountType: "MEMBER",
+        accountType: "ADMIN",
       },
     ],
   },
   {
+    path: "/registrartion",
+    name: "Registration",
+    component: <ADMIN.Registration />,
+    icon: <UserAddOutlined />,
+    isFilter: true,
+    isShow: true,
+    accountType: "ADMIN",
+  },
+  {
     path: "/member",
     name: "Members Management",
-    // component: <ADMIN.Member />,
+    component: <ADMIN.Members />,
     icon: <UserOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
-    children: [
-      {
-        path: "registration",
-        name: "Registration",
-        component: <ADMIN.Registration />,
-        icon: <UserAddOutlined />,
-        isFilter: true,
-        isShow: true,
-        accountType: "MEMBER",
-      },
-      {
-        path: "pending",
-        name: "Pending",
-        component: <ADMIN.Pending />,
-        icon: <ClockCircleOutlined />,
-        accountType: "MEMBER",
-      },
-      {
-        path: "approved",
-        name: "Approved",
-        component: <ADMIN.Accepted />,
-        icon: <CheckCircleOutlined />,
-        accountType: "MEMBER",
-      },
-    ],
+    accountType: "ADMIN",
+    // children: [
+    //   {
+    //     path: "pending",
+    //     name: "Pending",
+    //     component: <ADMIN.Pending />,
+    //     icon: <ClockCircleOutlined />,
+    //     accountType: "ADMIN",
+    //   },
+    //   {
+    //     path: "approved",
+    //     name: "Approved",
+    //     component: <ADMIN.Accepted />,
+    //     icon: <CheckCircleOutlined />,
+    //     accountType: "ADMIN",
+    //   },
+    // ],
   },
   {
     path: "/stalls",
@@ -118,7 +118,7 @@ export const nav = [
     icon: <HomeOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
     children: [
       {
         path: "owner",
@@ -127,7 +127,7 @@ export const nav = [
         icon: <HomeOutlined />,
         isFilter: true,
         isShow: true,
-        accountType: "MEMBER",
+        accountType: "ADMIN",
       },
       {
         path: "type",
@@ -136,7 +136,7 @@ export const nav = [
         icon: <HomeOutlined />,
         isFilter: true,
         isShow: true,
-        accountType: "MEMBER",
+        accountType: "ADMIN",
       },
     ],
   },
@@ -147,7 +147,7 @@ export const nav = [
     icon: <CarOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
   },
   {
     path: "/loans",
@@ -156,7 +156,7 @@ export const nav = [
     icon: <CarOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
     children: [
       {
         path: "members",
@@ -165,7 +165,7 @@ export const nav = [
         icon: <CarOutlined />,
         isFilter: true,
         isShow: true,
-        accountType: "MEMBER",
+        accountType: "ADMIN",
       },
       {
         path: "terms",
@@ -174,7 +174,7 @@ export const nav = [
         icon: <CarOutlined />,
         isFilter: true,
         isShow: true,
-        accountType: "MEMBER",
+        accountType: "ADMIN",
       },
     ],
   },
@@ -185,6 +185,6 @@ export const nav = [
     icon: <TeamOutlined />,
     isFilter: true,
     isShow: true,
-    accountType: "MEMBER",
+    accountType: "ADMIN",
   },
 ];

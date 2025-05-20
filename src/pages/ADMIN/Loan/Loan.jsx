@@ -18,11 +18,14 @@ const Load = () => {
   console.log(addLoan);
 
   useEffect(() => {
-    const interest = inputs?.amount * 0.03;
-
+    const interestOnLoan = inputs?.months * 0.015;
+    const other = inputs?.principal * 0.02;
     form.setFieldsValue({
-      interest,
-      loanInterest: 3,
+      loanInterest: inputs?.principal ? inputs.principal * interestOnLoan : 0,
+      interest: interestOnLoan ? interestOnLoan : 0,
+      cbu: other ? other : 0,
+      savings: other ? other : 0,
+      serviceFee: other ? other : 0,
     });
   }, [inputs]);
   const onFinish = (val) => {
