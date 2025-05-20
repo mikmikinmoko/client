@@ -3,7 +3,7 @@ import { createAxiosInstanceWithInterceptor } from "../../axois";
 const defaultAxios = createAxiosInstanceWithInterceptor("data", "ADMIN");
 
 export const getParking = async () => {
-  const result = await defaultAxios.get("/api/admin/parking/getParking");
+  const result = await defaultAxios.get("/api/cms/admin/parking/getAllParking");
   return result;
 };
 export const getApprovedMember = async () => {
@@ -17,20 +17,20 @@ export const addParking = async (body) => {
 };
 export const editMember = async ({ param }) => {
   const result = await defaultAxios.post(
-    `/api/admin/membership/viewProfile/${param}`
+    `/api/admin/membership/viewProfile/${param}`,
   );
   return result;
 };
 export const getPendingMembers = async ({ param }) => {
   const result = await defaultAxios.get(
-    `/api/admin/membership/getPending/${param}`
+    `/api/admin/membership/getPending/${param}`,
   );
   return result;
 };
 export const acceptPendingRequest = async ({ param, body }) => {
   const result = await defaultAxios.post(
     `/api/admin/membership/acceptMember/${param}`,
-    body
+    body,
   );
   return result;
 };
