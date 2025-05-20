@@ -2,14 +2,10 @@ import { Tabs, Tag } from "antd";
 import Accepted from "./Tabs/Accepted";
 import Pending from "./Tabs/Pending";
 import Declined from "./Tabs/Declined";
-import { useMembersStore } from "../../../store/admin/useMembership";
+
 import { useGetMembers } from "../../../services/admin/request/members";
 
 const Members = () => {
-  // const selectedTab = useMembersStore((state) => state.selectedTab);
-  // const setSelectedTab = useMembersStore((state) => state.setSelectedTab);
-
-<<<<<<< HEAD
   const { data, isLoading } = useGetMembers();
   const pendingMembers = data?.filter((m) => m.status === 0);
   const acceptedMembers = data?.filter((m) => m.status === 1);
@@ -39,15 +35,6 @@ const Members = () => {
       dataIndex: "lastName",
     },
   ];
-=======
-  const getMembers = useGetMembers(selectedTab);
-<<<<<<< HEAD
-<<<<<<< HEAD
->>>>>>> 3145773ae98d755cbecbed3329432929a117c98f
-=======
->>>>>>> 3145773ae98d755cbecbed3329432929a117c98f
-=======
->>>>>>> 3145773ae98d755cbecbed3329432929a117c98f
 
   const tabs = [
     {
@@ -66,7 +53,7 @@ const Members = () => {
       children: <Declined data={declinedMembers} columns={columns} />,
     },
   ];
-  return <Tabs onChange={(e) => setSelectedTab(e)} items={tabs} type="card" />;
+  return <Tabs items={tabs} type="card" />;
 };
 
 export default Members;
